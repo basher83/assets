@@ -1,0 +1,58 @@
+# Infisical scan configuration for personal assets repository
+# This repo contains logos, images, screenshots, and documentation
+title = "Personal Assets Repository - Secret Scan Config"
+
+# Extend the base configuration with Infisical's default rules
+[extend]
+useDefault = true
+
+# Global allowlist to reduce false positives for this assets repository
+[allowlist]
+description = "Assets repo global allowlist - ignore binary files and common false positives"
+
+# Skip binary image files and other non-text assets
+paths = [
+	# Image files
+	'''.*\.(png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff)$''',
+	# Design files
+	'''.*\.(psd|ai|sketch|figma|xd)$''',
+	# Video/Audio files
+	'''.*\.(mp4|mov|avi|mkv|mp3|wav|flac)$''',
+	# Archive files
+	'''.*\.(zip|tar|gz|rar|7z)$''',
+	# Font files
+	'''.*\.(ttf|otf|woff|woff2|eot)$''',
+	# Other binary/generated files
+	'''.*\.(pdf|doc|docx|ppt|pptx|xls|xlsx)$''',
+	# Infisical files
+	'''\.infisical-.*\.json$''',
+	'''\.infisical-scan\.toml$'''
+]
+
+# Common false positive patterns in asset repositories
+regexes = [
+	# Ignore sample/demo keys in documentation
+	'''(?i)(example|sample|demo|placeholder|fake)[_-]?(key|token|secret|password)''',
+	# Ignore common placeholder values
+	'''(?i)(your[_-]?(key|token|secret|password)|replace[_-]?with[_-]?your)''',
+	# Ignore base64 encoded image data prefixes
+	'''data:image/[^;]+;base64,''',
+	# Ignore common test/placeholder UUIDs
+	'''(00000000-0000-0000-0000-000000000000|11111111-1111-1111-1111-111111111111)'''
+]
+
+# Common stopwords for asset repositories
+stopwords = [
+	"logo",
+	"icon",
+	"image",
+	"banner",
+	"screenshot",
+	"example",
+	"sample",
+	"placeholder",
+	"demo",
+	"test",
+	"default",
+	"template"
+]
