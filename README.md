@@ -2,10 +2,10 @@
 
 # 🚀 basher83/assets 🛰️
 
-![Last Updated](https://img.shields.io/badge/Last%20Updated-2025-06-06-success)
+![GitHub last commit](https://img.shields.io/github/last-commit/basher83/assets?path=README.md&display_timestamp=author&style=plastic&logo=github)
 [![Profile](https://img.shields.io/badge/GitHub-basher83-181717?style=flat&logo=github)](https://github.com/basher83)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![GitHub License](https://img.shields.io/github/license/basher83/asets?style=plastic)
+
 
 **Central repository for all my GitHub visual assets and resources**
 
@@ -45,8 +45,8 @@ basher83/assets/
 ### HTML for More Control
 
 ```html
-<img src="https://raw.githubusercontent.com/basher83/assets/main/path/to/asset.png" 
-     width="300" 
+<img src="https://raw.githubusercontent.com/basher83/assets/main/path/to/asset.png"
+     width="300"
      alt="Description"
      align="right">
 ```
@@ -133,7 +133,7 @@ Feel free to reference these assets in issues, discussions, or when collaboratin
 ---
 
 <div align="center">
-  
+
 ### 🌌 Space-Themed Organization
 
 This repository follows my [space-themed naming convention](https://github.com/basher83/basher83/blob/main/repo-naming-conventions.md) for asset organization.
