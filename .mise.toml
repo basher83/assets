@@ -1,0 +1,122 @@
+[settings]
+auto_install = true
+not_found_auto_install = true
+jobs = 4
+task_run_auto_install = true
+
+[settings.status]
+show_tools = true
+show_env = false
+truncate = true
+
+[tools]
+cosign = "2.5.3"
+eza = "0.23.0"
+fd = "10.2.0"
+pre-commit = "4.3.0"
+rg = "14.1.1"
+
+# Lint/fmt
+yamllint = "1.37.1"
+yamlfmt = "0.17.2"
+shellcheck = "0.11.0"
+markdownlint-cli2 = "0.18.1"
+
+# Infisical Secret Scanning and Secret injection
+# This task initializes the Infisical configuration, creates a baseline, and installs the pre-commit hook
+[tasks.infisical-init]
+description = "Initialize Infisical configuration, create baseline, and install pre-commit hook"
+run = """
+# Check if .infisical.json already exists
+if [ -f .infisical.json ]; then
+  echo "⚠️  .infisical.json already exists!"
+  echo "Current configuration:"
+  cat .infisical.json | head -5
+  echo "..."
+  read -p "Do you want to overwrite it? (y/N): " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "❌ Skipping .infisical.json creation"
+  else
+    echo "📝 Overwriting .infisical.json with project configuration..."
+    cat > .infisical.json << 'EOF'
+{
+  "workspaceId": "7b832220-24c0-45bc-a5f1-ce9794a31259",
+  "defaultEnvironment": "production",
+  "gitBranchToEnvironmentMapping": {
+    "main": "production",
+    "develop": "development",
+    "staging": "staging",
+    "feature/*": "development"
+  }
+}
+EOF
+    echo "✅ Updated .infisical.json"
+  fi
+else
+  echo "📝 Creating .infisical.json with project configuration..."
+  cat > .infisical.json << 'EOF'
+{
+  "workspaceId": "7b832220-24c0-45bc-a5f1-ce9794a31259",
+  "defaultEnvironment": "production",
+  "gitBranchToEnvironmentMapping": {
+    "main": "production",
+    "develop": "development",
+    "staging": "staging",
+    "feature/*": "development"
+  }
+}
+EOF
+  echo "✅ Created .infisical.json"
+fi
+
+# Check if baseline exists
+if [ -f .infisical-baseline.json ]; then
+  echo "⚠️  .infisical-baseline.json already exists!"
+  read -p "Do you want to regenerate the baseline? (y/N): " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "🔍 Regenerating baseline scan..."
+    infisical scan --report-path=.infisical-baseline.json
+    echo "✅ Regenerated .infisical-baseline.json"
+  else
+    echo "✔️  Using existing baseline"
+  fi
+else
+  echo "🔍 Creating baseline scan..."
+  infisical scan --report-path=.infisical-baseline.json
+  echo "✅ Created .infisical-baseline.json"
+fi
+
+echo "🪝 Installing/updating pre-commit hook..."
+infisical scan install --pre-commit-hook
+echo "✅ Installed Infisical pre-commit hook"
+
+echo "🎉 Infisical setup complete!"
+"""
+
+[tasks.infisical-scan]
+description = "Scan repository for secrets and sensitive data"
+run = "infisical scan --baseline-path=.infisical-baseline.json"
+
+# Pre-commit hooks
+[tasks.hooks-install]
+description = "Install pre-commit and infisical hooks"
+run = "pre-commit install"
+
+[tasks.hooks-run]
+description = "Run pre-commit hooks"
+run = "pre-commit run --all-files"
+
+# Lint
+[tasks.markdown-lint]
+description = "Lint Markdown files"
+run = "markdownlint-cli2 '**/*.md'"
+
+[tasks.shellcheck]
+description = "Lint shell scripts"
+run = "find scripts -name '*.sh' -exec shellcheck {} +"
+
+[tasks.yaml-lint]
+description = "Lint YAML files"
+run = "yamllint ."
