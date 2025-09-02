@@ -1,7 +1,7 @@
-![Terraform](https://img.shields.io/badge/terraform-000000?style=for-the-badge&logo=terraform&logoColor=)
-![Vault](https://img.shields.io/badge/Vault-000000?style=for-the-badge&logo=vault&logoColor=)
-![Packer](https://img.shields.io/badge/Packer-000000?style=for-the-badge&logo=packer&logoColor=)
-![Nomad](https://img.shields.io/badge/Nomad-000000?style=for-the-badge&logo=nomad&logoColor=)
+![Terraform](https://img.shields.io/badge/terraform-000000?style=plastic&logo=terraform&logoColor=)
+![Vault](https://img.shields.io/badge/Vault-000000?style=plastic&logo=vault&logoColor=)
+![Packer](https://img.shields.io/badge/Packer-000000?style=plastic&logo=packer&logoColor=)
+![Nomad](https://img.shields.io/badge/Nomad-000000?style=plastic&logo=nomad&logoColor=)
 
 ![Ansible](https://img.shields.io/badge/Ansible-000000?style=for-the-badge&logo=ansible&logoColor=white)
 
@@ -16,6 +16,8 @@
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
 ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/basher83/assets?path=badges/badges.md&display_timestamp=author&style=plastic)
 
 
 ## Resources
