@@ -19,7 +19,7 @@ rg = "14.1.1"
 yamllint = "1.37.1"
 yamlfmt = "0.17.2"
 shellcheck = "0.11.0"
-markdownlint-cli2 = "0.18.1"
+markdownlint-cli2 = "0.21.0"
 
 # Infisical Secret Scanning and Secret injection
 # This task initializes the Infisical configuration, creates a baseline, and installs the pre-commit hook
