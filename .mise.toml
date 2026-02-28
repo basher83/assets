@@ -10,7 +10,7 @@ show_env = false
 truncate = true
 
 [tools]
-cosign = "2.5.3"
+cosign = "3.0.5"
 eza = "0.23.0"
 fd = "10.2.0"
 rg = "14.1.1"
