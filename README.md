@@ -4,7 +4,7 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/basher83/assets?path=README.md&display_timestamp=author&style=plastic&logo=github)
 [![Profile](https://img.shields.io/badge/GitHub-basher83-181717?style=flat&logo=github)](https://github.com/basher83)
-![GitHub License](https://img.shields.io/github/license/basher83/asets?style=plastic)
+![GitHub License](https://img.shields.io/github/license/basher83/assets?style=plastic)
 
 
 **Central repository for all my GitHub visual assets and resources**

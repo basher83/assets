@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homelab Repo Banner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #0D1B2A;
+            /* Space Blue */
+            color: #EAEAEA;
+            /* Star White */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 360px;
+            width: 1280px;
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #1B998B;
+            /* Signal Cyan */
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            color: #EAEAEA;
+        }
+
+        .code-snippet {
+            background: #1B1B1B;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 16px;
+            color: #EAEAEA;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight {
+            color: #EF476F;
+            /* Nebula Pink */
+        }
+
+        .accent {
+            color: #FFD166;
+            /* Solar Amber */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div>
+            <div class="title">Nomad Cluster</div>
+            <div class="subtitle">Homelab IaC Deployment</div>
+        </div>
+        <div class="code-snippet">
+            <pre><code>job <span class="highlight">"web"</span> {
+  group <span class="highlight">"services"</span> {
+    task <span class="accent">"nginx"</span> {
+      driver = "docker"
+    }
+  }
+}</code></pre>
+        </div>
+    </div>
+</body>
+
+</html>
