@@ -12,7 +12,7 @@ truncate = true
 [tools]
 cosign = "2.5.3"
 eza = "0.23.0"
-fd = "10.2.0"
+fd = "10.5.0"
 rg = "14.1.1"
 
 # Lint/fmt
