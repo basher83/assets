@@ -11,7 +11,7 @@ truncate = true
 
 [tools]
 cosign = "2.5.3"
-eza = "0.23.0"
+eza = "0.23.5"
 fd = "10.2.0"
 rg = "14.1.1"
 
